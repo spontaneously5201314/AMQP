@@ -1,12 +1,12 @@
-package com.cmcm.study.rabbitmq.consumer;
+package com.cmcm.study.rabbitmq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RabbitmqConsumerApplication {
+public class RabbitmqProducerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RabbitmqConsumerApplication.class, args);
+        SpringApplication.run(RabbitmqProducerApplication.class, args);
     }
 }
