@@ -12,19 +12,19 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class RabbitMQConfig {
 
-    @Bean
+    @Bean("testQueue")
     public Queue testQueue(){
         return new Queue("test", true);
     }
 
-    @Bean
-    public Exchange testExchange(){
+    @Bean("testExchange")
+    public TopicExchange testExchange(){
         return new TopicExchange("hello");
     }
 
-    @Bean
-    public Binding binding(Queue queue, TopicExchange exchange){
-        return BindingBuilder.bind(queue).to(exchange).with("hello.#");
+    @Bean("testBinding")
+    public Binding testBinding(Queue testQueue, TopicExchange testExchange){
+        return BindingBuilder.bind(testQueue).to(testExchange).with("hello.#");
     }
 
     @Primary

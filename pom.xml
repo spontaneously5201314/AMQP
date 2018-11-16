@@ -19,7 +19,10 @@
     </parent>
 
     <modules>
-        <module>RabbitMQ</module>
+        <module>Admin</module>
+        <module>Kafka</module>
+        <module>Rabbitmq</module>
+        <module>Zookeeper</module>
     </modules>
 
     <properties>

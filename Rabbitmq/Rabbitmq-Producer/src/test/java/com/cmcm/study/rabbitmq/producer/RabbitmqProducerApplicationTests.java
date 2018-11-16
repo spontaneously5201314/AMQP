@@ -16,8 +16,9 @@ public class RabbitmqProducerApplicationTests {
     @Test
     public void contextLoads() {
 //        myProducer.send();
-        myProducer.sendTopic();
-        myProducer.sendUser();
+//        myProducer.sendTopic();
+//        myProducer.sendUser();
+        myProducer.sendHeaderUser();
     }
 
 }

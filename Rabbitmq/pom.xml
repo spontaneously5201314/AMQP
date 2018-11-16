@@ -17,8 +17,8 @@
     </parent>
 
     <modules>
-        <module>RabbitMQ-Producer</module>
-        <module>RabbitMQ-Consumer</module>
+        <module>Rabbitmq-Producer</module>
+        <module>Rabbitmq-Consumer</module>
     </modules>
 
     <properties>

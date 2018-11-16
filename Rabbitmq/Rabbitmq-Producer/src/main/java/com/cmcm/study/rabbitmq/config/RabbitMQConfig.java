@@ -11,6 +11,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
+    //-----------------------------//
+    //        Header Exchange      //
+    //-----------------------------//
+    @Bean("headerQueue")
+    public Queue headerQueue(){
+        return new Queue("header");
+    }
+
+    @Bean("headersExchange")
+    public HeadersExchange headersExchange(){
+        return new HeadersExchange("header");
+    }
+
+    //-----------------------------//
+    //         Topic Exchange      //
+    //-----------------------------//
+
     @Bean
     public Queue queue(){
         return new Queue("test", true);
@@ -26,6 +43,10 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(queue).to(exchange).with("hello#");
     }
 
+    //-----------------------------//
+    //        Direct Exchange      //
+    //-----------------------------//
+
     @Bean("userQueue")
     public Queue userQueue(){
         return new Queue("user", false);
@@ -39,5 +60,19 @@ public class RabbitMQConfig {
     @Bean("userBinding")
     public Binding userBinding(Queue userQueue, DirectExchange userExchange){
         return BindingBuilder.bind(userQueue).to(userExchange).with("user");
+    }
+
+    //-----------------------------//
+    //        Fanout Exchange      //
+    //-----------------------------//
+
+    @Bean
+    public FanoutExchange fanoutExchange(){
+        return new FanoutExchange("testFan");
+    }
+
+    @Bean
+    public Binding testFanoutBinding(Queue queue, FanoutExchange fanoutExchange){
+        return BindingBuilder.bind(queue).to(fanoutExchange);
     }
 }
